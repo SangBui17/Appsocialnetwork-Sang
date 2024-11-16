@@ -1,0 +1,843 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Social_network.Views.ProfilePage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Profile">
+    <ScrollView BackgroundColor="LightGray">
+        <VerticalStackLayout>
+            <!--  Container 1  -->
+            <VerticalStackLayout Padding="10" BackgroundColor="White">
+                <!--  Header with Back and Search Icons  -->
+                <HorizontalStackLayout
+                    Margin="0,0,0,10"
+                    Spacing="10"
+                    VerticalOptions="Center">
+                    <ImageButton
+                        BackgroundColor="Transparent"
+                        HeightRequest="30"
+                        Source="back_icon.png"
+                        WidthRequest="15" />
+                    <Frame
+                        Padding="0"
+                        BorderColor="Transparent"
+                        CornerRadius="15"
+                        VerticalOptions="Center">
+                        <Entry
+                            Margin="10,0"
+                            HeightRequest="35"
+                            Placeholder=""
+                            WidthRequest="250" />
+                    </Frame>
+
+                    <ImageButton
+                        BackgroundColor="Transparent"
+                        HeightRequest="30"
+                        Source="search_icon.png"
+                        WidthRequest="15" />
+                </HorizontalStackLayout>
+
+                <!--  Profile Image and Group Photo  -->
+                <Grid>
+                    <Image
+                        Aspect="AspectFill"
+                        HeightRequest="180"
+                        Source="{Binding UserMe.cover_image.linkImage}" />
+
+                    <Frame
+                        Margin="10"
+                        Padding="0"
+                        BackgroundColor="White"
+                        CornerRadius="50"
+                        HeightRequest="100"
+                        HorizontalOptions="Start"
+                        VerticalOptions="End"
+                        WidthRequest="100">
+                        <Image
+                            Aspect="AspectFill"
+                            HorizontalOptions="FillAndExpand"
+                            Source="{Binding UserMe.avatar_image.linkImage}"
+                            VerticalOptions="FillAndExpand" />
+                    </Frame>
+                </Grid>
+
+                <!--  Name and Mutual Friends  -->
+                <Label
+                    Margin="10,5,0,0"
+                    FontAttributes="Bold"
+                    FontSize="18"
+                    Text="{Binding UserMe.fullName}" />
+                <Label Margin="10,0,0,10" FontSize="14">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span FontAttributes="Bold" Text="25" />
+                            <Span Text=" bạn chung" />
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+
+                <!--  Buttons  -->
+
+                <HorizontalStackLayout
+                    Padding="0,0,0,5"
+                    HorizontalOptions="Start"
+                    Spacing="10">
+                    <Button
+                        BackgroundColor="#0A65FE"
+                        FontAttributes="Bold"
+                        HeightRequest="40"
+                        Text="Thêm vào tin"
+                        WidthRequest="340">
+                        <Button.ImageSource>
+                            <FileImageSource File="add2_icon.png" />
+                        </Button.ImageSource>
+                    </Button>
+                </HorizontalStackLayout>
+
+                <HorizontalStackLayout HorizontalOptions="Start" Spacing="5">
+                    <Button
+                        BackgroundColor="LightGray"
+                        CornerRadius="10"
+                        FontAttributes="Bold"
+                        HeightRequest="40"
+                        Text="Chỉnh sửa trang cá nhân"
+                        TextColor="Black"
+                        WidthRequest="290">
+                        <Button.ImageSource>
+                            <FileImageSource File="pen_icon.png" />
+                        </Button.ImageSource>
+                    </Button>
+                    <Button
+                        BackgroundColor="LightGray"
+                        CornerRadius="10"
+                        FontAttributes="Bold"
+                        HeightRequest="40"
+                        TextColor="Black"
+                        WidthRequest="45">
+                        <Button.ImageSource>
+                            <FileImageSource File="option_icon.png" />
+                        </Button.ImageSource>
+                    </Button>
+
+
+                </HorizontalStackLayout>
+
+            </VerticalStackLayout>
+
+            <!--  Container 2  -->
+            <VerticalStackLayout Margin="0,5,0,0" BackgroundColor="White">
+                <HorizontalStackLayout Margin="10,10,0,0">
+                    <Button
+                        Margin="0,0,0,0"
+                        Padding="0"
+                        BackgroundColor="#EBF5FE"
+                        BorderColor="Transparent"
+                        CornerRadius="200"
+                        FontAttributes="Bold"
+                        HeightRequest="40"
+                        Text="Bài viết"
+                        TextColor="#1A73CD"
+                        WidthRequest="80" />
+                    <Button
+                        Margin="10,0,0,0"
+                        Padding="0"
+                        BackgroundColor="#EBF5FE"
+                        BorderColor="Transparent"
+                        CornerRadius="200"
+                        FontAttributes="Bold"
+                        HeightRequest="40"
+                        Text="Ảnh"
+                        TextColor="#1A73CD"
+                        WidthRequest="50" />
+                    <Button
+                        Margin="10,0,0,0"
+                        Padding="0"
+                        BackgroundColor="#EBF5FE"
+                        BorderColor="Transparent"
+                        CornerRadius="200"
+                        FontAttributes="Bold"
+                        HeightRequest="40"
+                        Text="Reels"
+                        TextColor="#1A73CD"
+                        WidthRequest="70" />
+                </HorizontalStackLayout>
+
+                <VerticalStackLayout>
+                    <Label
+                        Margin="10,5,0,0"
+                        FontAttributes="Bold"
+                        FontSize="16"
+                        HorizontalOptions="Start"
+                        Text="Chi tiết" />
+                    <Button
+                        Margin="10,10,0,0"
+                        Padding="0,0,0,0"
+                        BackgroundColor="Transparent"
+                        HeightRequest="20"
+                        HorizontalOptions="Start"
+                        Text=" Xem thông tin giới thiệu của bạn"
+                        TextColor="Black">
+                        <Button.ImageSource>
+                            <FileImageSource File="option_icon.png" />
+                        </Button.ImageSource>
+                    </Button>
+                </VerticalStackLayout>
+
+                <ScrollView Padding="10" Orientation="Horizontal">
+                    <HorizontalStackLayout>
+                        <VerticalStackLayout Margin="10,20,0,0">
+                            <Button
+                                BackgroundColor="Gray"
+                                FontAttributes="Bold"
+                                HeightRequest="150"
+                                WidthRequest="100">
+                                <Button.ImageSource>
+                                    <FileImageSource File="add_icon.png" />
+                                </Button.ImageSource>
+                            </Button>
+                            <Label
+                                FontAttributes="Bold"
+                                FontSize="13"
+                                HorizontalOptions="Center"
+                                Text="Mới" />
+                        </VerticalStackLayout>
+
+                        <VerticalStackLayout Margin="10,20,0,0">
+                            <Button
+                                BackgroundColor="Gray"
+                                FontAttributes="Bold"
+                                HeightRequest="150"
+                                WidthRequest="100">
+                                <Button.ImageSource>
+                                    <FileImageSource File="tony_stark.png" />
+                                </Button.ImageSource>
+                            </Button>
+                            <Label
+                                FontAttributes="Bold"
+                                FontSize="13"
+                                HorizontalOptions="Center"
+                                Text="Mới" />
+                        </VerticalStackLayout>
+
+                        <VerticalStackLayout Margin="10,20,0,0">
+                            <Button
+                                BackgroundColor="Gray"
+                                FontAttributes="Bold"
+                                HeightRequest="150"
+                                WidthRequest="100">
+                                <Button.ImageSource>
+                                    <FileImageSource File="tony_stark.png" />
+                                </Button.ImageSource>
+                            </Button>
+                            <Label
+                                FontAttributes="Bold"
+                                FontSize="13"
+                                HorizontalOptions="Center"
+                                Text="Mới" />
+                        </VerticalStackLayout>
+                        <VerticalStackLayout Margin="10,20,0,0">
+                            <Button
+                                BackgroundColor="Gray"
+                                FontAttributes="Bold"
+                                HeightRequest="150"
+                                WidthRequest="100">
+                                <Button.ImageSource>
+                                    <FileImageSource File="tony_stark.png" />
+                                </Button.ImageSource>
+                            </Button>
+                            <Label
+                                FontAttributes="Bold"
+                                FontSize="13"
+                                HorizontalOptions="Center"
+                                Text="Mới" />
+                        </VerticalStackLayout>
+                    </HorizontalStackLayout>
+                </ScrollView>
+
+                <Button
+                    Margin="0,0,0,0"
+                    Padding="0"
+                    BackgroundColor="#EBF5FE"
+                    BorderColor="Transparent"
+                    FontAttributes="Bold"
+                    FontSize="12"
+                    HeightRequest="36"
+                    Text="Chỉnh sửa chi tiết công khai"
+                    TextColor="#1971C5"
+                    WidthRequest="340" />
+
+                <HorizontalStackLayout>
+                    <Label
+                        Margin="10,20,0,0"
+                        FontAttributes="Bold"
+                        FontSize="14"
+                        Text="Bạn bè" />
+                    <Button
+                        Margin="220,8,0,0"
+                        BackgroundColor="Transparent"
+                        FontSize="12"
+                        HorizontalOptions="End"
+                        Text="Tìm bạn bè"
+                        TextColor="#1971C5" />
+                </HorizontalStackLayout>
+                <Label Margin="10,-10,0,0" FontSize="13">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="420 " TextColor="Gray" />
+                            <Span Text="người bạn" TextColor="Gray" />
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <HorizontalStackLayout HorizontalOptions="Center">
+                    <VerticalStackLayout Margin="0,20,0,0">
+                        <Button
+                            BackgroundColor="Gray"
+                            FontAttributes="Bold"
+                            HeightRequest="100"
+                            WidthRequest="100">
+                            <Button.ImageSource>
+                                <FileImageSource File="tony_stark.png" />
+                            </Button.ImageSource>
+                        </Button>
+                        <Label
+                            Margin="10,5,0,0"
+                            FontAttributes="Bold"
+                            FontSize="13"
+                            HorizontalOptions="Start"
+                            Text="Cuong Udon" />
+                    </VerticalStackLayout>
+
+                    <VerticalStackLayout Margin="10,20,0,0">
+                        <Button
+                            BackgroundColor="Gray"
+                            FontAttributes="Bold"
+                            HeightRequest="100"
+                            WidthRequest="100">
+                            <Button.ImageSource>
+                                <FileImageSource File="tony_stark.png" />
+                            </Button.ImageSource>
+                        </Button>
+                        <Label
+                            Margin="10,5,0,0"
+                            FontAttributes="Bold"
+                            FontSize="13"
+                            HorizontalOptions="Start"
+                            Text="Cuong Udon" />
+                    </VerticalStackLayout>
+
+                    <VerticalStackLayout Margin="10,20,0,0">
+                        <Button
+                            BackgroundColor="Gray"
+                            FontAttributes="Bold"
+                            HeightRequest="100"
+                            WidthRequest="100">
+                            <Button.ImageSource>
+                                <FileImageSource File="tony_stark.png" />
+                            </Button.ImageSource>
+                        </Button>
+                        <Label
+                            Margin="10,5,0,0"
+                            FontAttributes="Bold"
+                            FontSize="13"
+                            HorizontalOptions="Start"
+                            Text="Cuong Udon" />
+                    </VerticalStackLayout>
+
+                </HorizontalStackLayout>
+                <HorizontalStackLayout Margin="0,-11,0,0" HorizontalOptions="Center">
+                    <VerticalStackLayout Margin="0,20,0,0">
+                        <Button
+                            BackgroundColor="Gray"
+                            FontAttributes="Bold"
+                            HeightRequest="100"
+                            WidthRequest="100">
+                            <Button.ImageSource>
+                                <FileImageSource File="tony_stark.png" />
+                            </Button.ImageSource>
+                        </Button>
+                        <Label
+                            Margin="10,5,0,0"
+                            FontAttributes="Bold"
+                            FontSize="13"
+                            HorizontalOptions="Start"
+                            Text="Cuong Udon" />
+                    </VerticalStackLayout>
+
+                    <VerticalStackLayout Margin="10,20,0,0">
+                        <Button
+                            BackgroundColor="Gray"
+                            FontAttributes="Bold"
+                            HeightRequest="100"
+                            WidthRequest="100">
+                            <Button.ImageSource>
+                                <FileImageSource File="tony_stark.png" />
+                            </Button.ImageSource>
+                        </Button>
+                        <Label
+                            Margin="10,5,0,0"
+                            FontAttributes="Bold"
+                            FontSize="13"
+                            HorizontalOptions="Start"
+                            Text="Cuong Udon" />
+                    </VerticalStackLayout>
+
+                    <VerticalStackLayout Margin="10,20,0,0">
+                        <Button
+                            BackgroundColor="Gray"
+                            FontAttributes="Bold"
+                            HeightRequest="100"
+                            WidthRequest="100">
+                            <Button.ImageSource>
+                                <FileImageSource File="tony_stark.png" />
+                            </Button.ImageSource>
+                        </Button>
+                        <Label
+                            Margin="10,5,0,0"
+                            FontAttributes="Bold"
+                            FontSize="13"
+                            HorizontalOptions="Start"
+                            Text="Cuong Udon" />
+                    </VerticalStackLayout>
+                </HorizontalStackLayout>
+                <Button
+                    Margin="0,20,0,10"
+                    Padding="0"
+                    BackgroundColor="#E2E5EA"
+                    BorderColor="Transparent"
+                    Clicked="OnFriendsButtonClicked"
+                    FontAttributes="Bold"
+                    FontSize="12"
+                    HeightRequest="34"
+                    Text="Xem tất cả bạn bè"
+                    TextColor="Black"
+                    WidthRequest="340" />
+
+            </VerticalStackLayout>
+
+            <!--  Container 3  -->
+            <VerticalStackLayout Margin="0,5,0,0" BackgroundColor="White">
+                <HorizontalStackLayout>
+                    <Label
+                        Margin="10,10,0,0"
+                        BackgroundColor="Transparent"
+                        FontAttributes="Bold"
+                        FontSize="14"
+                        Text="Bài viết" />
+                    <Button
+                        Margin="220,10,0,0"
+                        Padding="0"
+                        BackgroundColor="Transparent"
+                        FontSize="12"
+                        HeightRequest="20"
+                        Text="Bộ lọc"
+                        TextColor="#1971C5"
+                        WidthRequest="70" />
+                </HorizontalStackLayout>
+
+                <VerticalStackLayout>
+                    <Button
+                        Margin="10,10,0,0"
+                        Padding="0,0,90,0"
+                        BackgroundColor="Transparent"
+                        HeightRequest="40"
+                        HorizontalOptions="Start"
+                        Text=" Bạn đang nghĩ gì?"
+                        TextColor="Black">
+                        <Button.ImageSource>
+                            <FileImageSource File="tony_stark.png" />
+                        </Button.ImageSource>
+                    </Button>
+                </VerticalStackLayout>
+
+                <HorizontalStackLayout
+                    Margin="0,10,0,0"
+                    BackgroundColor="#E2E5EA"
+                    HeightRequest="60">
+                    <Button
+                        Margin="10,0,0,0"
+                        Padding="0"
+                        BackgroundColor="White"
+                        BorderColor="Gray"
+                        CornerRadius="200"
+                        FontAttributes="Bold"
+                        FontSize="11"
+                        HeightRequest="30"
+                        Text="Thước phim"
+                        TextColor="Black"
+                        WidthRequest="120">
+                        <Button.ImageSource>
+                            <FileImageSource File="movie_icon.png" />
+                        </Button.ImageSource>
+                    </Button>
+                    <Button
+                        Margin="10,0,0,0"
+                        Padding="0"
+                        BackgroundColor="White"
+                        BorderColor="Gray"
+                        CornerRadius="200"
+                        FontAttributes="Bold"
+                        FontSize="11"
+                        HeightRequest="30"
+                        Text="Phát trực tiếp"
+                        TextColor="Black"
+                        WidthRequest="120">
+                        <Button.ImageSource>
+                            <FileImageSource File="stream_icon.png" />
+                        </Button.ImageSource>
+                    </Button>
+                </HorizontalStackLayout>
+
+                <Button
+                    Margin="0,15,0,5"
+                    Padding="0"
+                    BackgroundColor="#E2E5EA"
+                    BorderColor="Transparent"
+                    FontAttributes="Bold"
+                    FontSize="12"
+                    HeightRequest="34"
+                    Text="Quản lý bài viết"
+                    TextColor="Black"
+                    WidthRequest="340" />
+            </VerticalStackLayout>
+
+            <!--  Container 4: Bài viết  -->
+            <VerticalStackLayout Margin="0,5,0,0" BackgroundColor="White">
+                <HorizontalStackLayout HorizontalOptions="Start" Spacing="0">
+                    <Frame
+                        Padding="0"
+                        BackgroundColor="White"
+                        BorderColor="Transparent"
+                        CornerRadius="0"
+                        WidthRequest="360">
+                        <Grid>
+                            <!--  Cột 1: Nội dung  -->
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+
+                            <StackLayout
+                                Grid.Column="0"
+                                Margin="5,0,0,0"
+                                Orientation="Horizontal"
+                                Spacing="5"
+                                VerticalOptions="Center">
+
+                                <Image
+                                    HeightRequest="40"
+                                    Source="tony_stark.png"
+                                    VerticalOptions="Start"
+                                    WidthRequest="40" />
+                                <VerticalStackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Center">
+                                    <Label
+                                        Margin="0,0,0,0"
+                                        FontSize="13"
+                                        HorizontalOptions="FillAndExpand"
+                                        LineBreakMode="WordWrap"
+                                        MaxLines="2">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span
+                                                    FontAttributes="Bold"
+                                                    Text="Sáng Bùi"
+                                                    TextColor="Black" />
+                                                <Span Text=" đã cập nhật ảnh đại diện của anh ấydfad" TextColor="Gray" />
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                    <HorizontalStackLayout Margin="0,5,0,0">
+                                        <Label
+                                            FontSize="11"
+                                            Text="18 thg 10"
+                                            TextColor="Gray" />
+                                        <Image
+                                            Margin="5,0,0,0"
+                                            HeightRequest="10"
+                                            Source="private_icon"
+                                            WidthRequest="10" />
+                                    </HorizontalStackLayout>
+                                    <Label
+                                        Margin="-40,10,0,0"
+                                        BackgroundColor="Transparent"
+                                        FontSize="13"
+                                        Text="Vui vay thoi chu bo dan con nay" />
+                                    <Image
+                                        Margin="0,30,0,0"
+                                        HeightRequest="300"
+                                        Source="loki"
+                                        WidthRequest="300" />
+                                    <HorizontalStackLayout>
+                                        <Image
+                                            Margin="-15,20,0,0"
+                                            HeightRequest="10"
+                                            Source="private_icon"
+                                            WidthRequest="10" />
+                                        <Image
+                                            Margin="5,20,0,0"
+                                            HeightRequest="10"
+                                            Source="private_icon"
+                                            WidthRequest="10" />
+                                        <Image
+                                            Margin="5,20,0,0"
+                                            HeightRequest="10"
+                                            Source="private_icon"
+                                            WidthRequest="10" />
+                                        <Label
+                                            Margin="5,20,0,0"
+                                            FontSize="12"
+                                            Text="Skibidi và người khác"
+                                            TextColor="Gray" />
+                                        <Label Margin="75,20,0,0" FontSize="12">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="10 " TextColor="Gray" />
+                                                    <Span Text="bình luận" TextColor="Gray" />
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                    </HorizontalStackLayout>
+                                    <HorizontalStackLayout>
+                                        <Button
+                                            Margin="-10,10,0,0"
+                                            Padding="6"
+                                            BackgroundColor="Transparent"
+                                            BorderColor="Gray"
+                                            CornerRadius="200"
+                                            FontAttributes="Bold"
+                                            FontSize="11"
+                                            HeightRequest="30"
+                                            Text="Thích"
+                                            TextColor="Black"
+                                            WidthRequest="70">
+
+                                            <Button.ImageSource>
+                                                <FileImageSource File="like_icon.png" />
+                                            </Button.ImageSource>
+                                        </Button>
+                                        <Button
+                                            Margin="20,10,0,0"
+                                            Padding="6"
+                                            BackgroundColor="Transparent"
+                                            BorderColor="Gray"
+                                            CornerRadius="200"
+                                            FontAttributes="Bold"
+                                            FontSize="11"
+                                            HeightRequest="30"
+                                            Text="Bình luận"
+                                            TextColor="Black"
+                                            WidthRequest="90">
+                                            <Button.ImageSource>
+                                                <FileImageSource File="like_icon.png" />
+                                            </Button.ImageSource>
+                                        </Button>
+                                        <Button
+                                            Margin="20,10,0,0"
+                                            Padding="6"
+                                            BackgroundColor="Transparent"
+                                            BorderColor="Gray"
+                                            CornerRadius="200"
+                                            FontAttributes="Bold"
+                                            FontSize="11"
+                                            HeightRequest="30"
+                                            Text="Chia sẻ"
+                                            TextColor="Black"
+                                            WidthRequest="90">
+
+                                            <Button.ImageSource>
+                                                <FileImageSource File="like_icon.png" />
+                                            </Button.ImageSource>
+                                        </Button>
+                                    </HorizontalStackLayout>
+                                </VerticalStackLayout>
+                            </StackLayout>
+
+                            <!--  Cột 2: Nút Option  -->
+                            <Button
+                                Grid.Column="1"
+                                Margin="5,0,5,0"
+                                Padding="0"
+                                BackgroundColor="Transparent"
+                                HeightRequest="20"
+                                HorizontalOptions="End"
+                                VerticalOptions="Start"
+                                WidthRequest="20">
+                                <Button.ImageSource>
+                                    <FileImageSource File="option_icon.png" />
+                                </Button.ImageSource>
+                            </Button>
+                        </Grid>
+                    </Frame>
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+            <VerticalStackLayout Margin="0,5,0,0" BackgroundColor="White">
+                <HorizontalStackLayout HorizontalOptions="Start" Spacing="0">
+                    <Frame
+                        Padding="0"
+                        BackgroundColor="White"
+                        BorderColor="Transparent"
+                        CornerRadius="0"
+                        WidthRequest="360">
+                        <Grid>
+                            <!--  Cột 1: Nội dung  -->
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+
+                            <StackLayout
+                                Grid.Column="0"
+                                Margin="5,0,0,0"
+                                Orientation="Horizontal"
+                                Spacing="5"
+                                VerticalOptions="Center">
+
+                                <Image
+                                    HeightRequest="40"
+                                    Source="tony_stark.png"
+                                    VerticalOptions="Start"
+                                    WidthRequest="40" />
+                                <VerticalStackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Center">
+                                    <Label
+                                        Margin="0,0,0,0"
+                                        FontSize="13"
+                                        HorizontalOptions="FillAndExpand"
+                                        LineBreakMode="WordWrap"
+                                        MaxLines="2">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span
+                                                    FontAttributes="Bold"
+                                                    Text="Sáng Bùi"
+                                                    TextColor="Black" />
+                                                <Span Text=" đã cập nhật ảnh đại diện của anh ấydfad" TextColor="Gray" />
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                    <HorizontalStackLayout Margin="0,5,0,0">
+                                        <Label
+                                            FontSize="11"
+                                            Text="18 thg 10"
+                                            TextColor="Gray" />
+                                        <Image
+                                            Margin="5,0,0,0"
+                                            HeightRequest="10"
+                                            Source="private_icon"
+                                            WidthRequest="10" />
+                                    </HorizontalStackLayout>
+                                    <Label
+                                        Margin="-40,10,0,0"
+                                        BackgroundColor="Transparent"
+                                        FontSize="13"
+                                        Text="Vui vay thoi chu bo dan con nay" />
+                                    <Image
+                                        Margin="0,30,0,0"
+                                        HeightRequest="300"
+                                        Source="loki"
+                                        WidthRequest="300" />
+                                    <HorizontalStackLayout>
+                                        <Image
+                                            Margin="-15,20,0,0"
+                                            HeightRequest="10"
+                                            Source="private_icon"
+                                            WidthRequest="10" />
+                                        <Image
+                                            Margin="5,20,0,0"
+                                            HeightRequest="10"
+                                            Source="private_icon"
+                                            WidthRequest="10" />
+                                        <Image
+                                            Margin="5,20,0,0"
+                                            HeightRequest="10"
+                                            Source="private_icon"
+                                            WidthRequest="10" />
+                                        <Label
+                                            Margin="5,20,0,0"
+                                            FontSize="12"
+                                            Text="Skibidi và người khác"
+                                            TextColor="Gray" />
+                                        <Label Margin="75,20,0,0" FontSize="12">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="10 " TextColor="Gray" />
+                                                    <Span Text="bình luận" TextColor="Gray" />
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                    </HorizontalStackLayout>
+                                    <HorizontalStackLayout>
+                                        <Button
+                                            Margin="-10,10,0,0"
+                                            Padding="6"
+                                            BackgroundColor="Transparent"
+                                            BorderColor="Gray"
+                                            CornerRadius="200"
+                                            FontAttributes="Bold"
+                                            FontSize="11"
+                                            HeightRequest="30"
+                                            Text="Thích"
+                                            TextColor="Black"
+                                            WidthRequest="70">
+
+                                            <Button.ImageSource>
+                                                <FileImageSource File="like_icon.png" />
+                                            </Button.ImageSource>
+                                        </Button>
+                                        <Button
+                                            Margin="20,10,0,0"
+                                            Padding="6"
+                                            BackgroundColor="Transparent"
+                                            BorderColor="Gray"
+                                            CornerRadius="200"
+                                            FontAttributes="Bold"
+                                            FontSize="11"
+                                            HeightRequest="30"
+                                            Text="Bình luận"
+                                            TextColor="Black"
+                                            WidthRequest="90">
+                                            <Button.ImageSource>
+                                                <FileImageSource File="like_icon.png" />
+                                            </Button.ImageSource>
+                                        </Button>
+                                        <Button
+                                            Margin="20,10,0,0"
+                                            Padding="6"
+                                            BackgroundColor="Transparent"
+                                            BorderColor="Gray"
+                                            CornerRadius="200"
+                                            FontAttributes="Bold"
+                                            FontSize="11"
+                                            HeightRequest="30"
+                                            Text="Chia sẻ"
+                                            TextColor="Black"
+                                            WidthRequest="90">
+
+                                            <Button.ImageSource>
+                                                <FileImageSource File="like_icon.png" />
+                                            </Button.ImageSource>
+                                        </Button>
+                                    </HorizontalStackLayout>
+                                </VerticalStackLayout>
+                            </StackLayout>
+
+                            <!--  Cột 2: Nút Option  -->
+                            <Button
+                                Grid.Column="1"
+                                Margin="5,0,5,0"
+                                Padding="0"
+                                BackgroundColor="Transparent"
+                                HeightRequest="20"
+                                HorizontalOptions="End"
+                                VerticalOptions="Start"
+                                WidthRequest="20">
+                                <Button.ImageSource>
+                                    <FileImageSource File="option_icon.png" />
+                                </Button.ImageSource>
+                            </Button>
+                        </Grid>
+                    </Frame>
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Social_network.Views.FriendsPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="FriendsPage">
+    
+    <VerticalStackLayout>
+        <HorizontalStackLayout
+            Margin="0,0,0,10"
+            Spacing="10"
+            VerticalOptions="Center"
+            HorizontalOptions="Center">
+            <Frame
+                Padding="0"
+                BorderColor="Gray"
+                CornerRadius="15"
+                VerticalOptions="Center">
+                <Entry
+                    Margin="10,0"
+                    HeightRequest="35"
+                    Placeholder="Tim kiếm bạn bè"
+                    WidthRequest="250" />
+            </Frame>
+        </HorizontalStackLayout>
+        <!--Hien thi ban be-->
+        <VerticalStackLayout>
+            <HorizontalStackLayout Margin="10,0,0,10">
+                <Image Source="loki" WidthRequest="60"/>
+                <Label Text="Hung Khang" FontAttributes="Bold" VerticalOptions="Center" Margin="10,0,0,0"/>
+                <ImageButton Source="option_icon" WidthRequest="30" Margin="150,0,0,0"/>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout Margin="10,0,0,10">
+                <Image Source="loki" WidthRequest="60"/>
+                <Label Text="Hung Khang" FontAttributes="Bold" VerticalOptions="Center" Margin="10,0,0,0"/>
+                <ImageButton Source="option_icon" WidthRequest="30" Margin="150,0,0,0"/>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout Margin="10,0,0,10">
+                <Image Source="loki" WidthRequest="60"/>
+                <Label Text="Hung Khang" FontAttributes="Bold" VerticalOptions="Center" Margin="10,0,0,0"/>
+                <ImageButton Source="option_icon" WidthRequest="30" Margin="150,0,0,0"/>
+            </HorizontalStackLayout>
+            
+        </VerticalStackLayout>
+    </VerticalStackLayout>
+</ContentPage>
